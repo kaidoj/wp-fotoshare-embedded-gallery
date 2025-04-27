@@ -1,0 +1,224 @@
+/**
+ * Fotoshare Embedded Gallery Styles
+ */
+
+/* Password Form Container */
+.fotoshare-password-form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Welcome Text */
+.fotoshare-welcome-text {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Form Fields */
+.fotoshare-form-field {
+    margin-bottom: 25px;
+}
+
+.fotoshare-form-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.fotoshare-form-field input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.fotoshare-form-field input:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Select dropdown for gallery selection */
+.fotoshare-form-field select {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.fotoshare-form-field select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Submit Button */
+.fotoshare-form-submit input[type="submit"] {
+    background-color: #4a90e2;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.fotoshare-form-submit input[type="submit"]:hover {
+    background-color: #3a80d2;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fotoshare-form-submit input[type="submit"]:active {
+    background-color: #2a70c2;
+    transform: translateY(0);
+}
+
+/* Error Message */
+.fotoshare-error {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 3px solid #e74c3c;
+    border-radius: 2px;
+    text-align: left;
+}
+
+/* Error message styling for the plugin-wide error */
+.fotoshare-error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    border-left: 4px solid #721c24;
+}
+
+/* Adjust title in the form container */
+.fotoshare-password-form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Gallery Container - Modified to not hide the header */
+.fotoshare-gallery-container {
+    position: relative;
+    width: 100%;
+    height: 800px; /* Fixed height instead of 100vh */
+    background: #000;
+    margin: 20px 0;
+    padding: 0;
+}
+
+/* Responsive iframe */
+.fotoshare-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Make iframe responsive on smaller screens */
+@media screen and (max-width: 768px) {
+    .fotoshare-gallery-container {
+        height: 500px;
+    }
+}
+
+/* Admin bar adjustments no longer needed */
+.admin-bar .fotoshare-gallery-container {
+    top: auto;
+    height: auto;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .fotoshare-gallery-container {
+        top: auto;
+        height: auto;
+    }
+}
+
+/* Gallery list styling */
+.fotoshare-galleries-list {
+    margin: 30px 0;
+}
+
+.fotoshare-galleries-list h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.fotoshare-galleries-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fotoshare-galleries-list li {
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #4a90e2;
+    transition: all 0.2s ease;
+}
+
+.fotoshare-galleries-list li:hover {
+    background-color: #f1f1f1;
+}
+
+.fotoshare-galleries-list a {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fotoshare-galleries-list a:hover {
+    color: #4a90e2;
+}
+
+/* Improve spacing for mobile */
+@media screen and (max-width: 480px) {
+    .fotoshare-password-form-container {
+        padding: 20px 15px;
+        margin: 30px auto;
+    }
+    
+    .fotoshare-form-field input,
+    .fotoshare-form-field select,
+    .fotoshare-form-submit input[type="submit"] {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
