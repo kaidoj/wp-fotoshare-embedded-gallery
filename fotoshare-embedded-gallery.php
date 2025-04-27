@@ -3,7 +3,7 @@
  * Plugin Name: Fotoshare Embedded Gallery
  * Plugin URI: https://github.com/kaidoj/wp-fotoshare-embedded-gallery
  * Description: A plugin that allows password-protected embedding of Fotoshare galleries
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: KaidoJ
  * Text Domain: fotoshare-embedded-gallery
  */
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 // Define plugin constants
 define('FOTOSHARE_GALLERY_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('FOTOSHARE_GALLERY_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('FOTOSHARE_GALLERY_VERSION', '1.0.1');
+define('FOTOSHARE_GALLERY_VERSION', '1.0.2');
 
 // Include required files
 require_once FOTOSHARE_GALLERY_PLUGIN_PATH . 'includes/class-fotoshare-gallery.php';
