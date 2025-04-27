@@ -198,6 +198,42 @@ function fotoshare_gallery_register_settings() {
             'default' => '#3a80d2'
         )
     );
+    
+    add_settings_field(
+        'fotoshare_gallery_box_background_color',
+        __('Login Box Background Color', 'fotoshare-embedded-gallery'),
+        'fotoshare_gallery_color_field_callback',
+        'fotoshare_gallery_settings',
+        'fotoshare_gallery_style_section',
+        array(
+            'id' => 'box_background_color',
+            'default' => '#ffffff'
+        )
+    );
+    
+    add_settings_field(
+        'fotoshare_gallery_text_color',
+        __('Text Color', 'fotoshare-embedded-gallery'),
+        'fotoshare_gallery_color_field_callback',
+        'fotoshare_gallery_settings',
+        'fotoshare_gallery_style_section',
+        array(
+            'id' => 'text_color',
+            'default' => '#333333'
+        )
+    );
+    
+    add_settings_field(
+        'fotoshare_gallery_label_color',
+        __('Label Text Color', 'fotoshare-embedded-gallery'),
+        'fotoshare_gallery_color_field_callback',
+        'fotoshare_gallery_settings',
+        'fotoshare_gallery_style_section',
+        array(
+            'id' => 'label_color',
+            'default' => '#333333'
+        )
+    );
 }
 add_action('admin_init', 'fotoshare_gallery_register_settings');
 
@@ -469,12 +505,36 @@ function fotoshare_gallery_enqueue_scripts() {
     wp_enqueue_style('fotoshare-gallery-style', FOTOSHARE_GALLERY_PLUGIN_URL . 'assets/css/style.css', array(), FOTOSHARE_GALLERY_VERSION);
     wp_enqueue_script('fotoshare-gallery-script', FOTOSHARE_GALLERY_PLUGIN_URL . 'assets/js/script.js', array('jquery'), FOTOSHARE_GALLERY_VERSION, true);
     
-    // Add inline CSS for custom button colors
+    // Add inline CSS for custom colors
     $options = get_option('fotoshare_gallery_options', array());
+    
+    // Button colors
     $button_color = isset($options['button_color']) && !empty($options['button_color']) ? $options['button_color'] : '#4a90e2';
     $button_hover_color = isset($options['button_hover_color']) && !empty($options['button_hover_color']) ? $options['button_hover_color'] : '#3a80d2';
     
+    // New background and text colors
+    $box_background_color = isset($options['box_background_color']) && !empty($options['box_background_color']) ? $options['box_background_color'] : '#ffffff';
+    $text_color = isset($options['text_color']) && !empty($options['text_color']) ? $options['text_color'] : '#333333';
+    $label_color = isset($options['label_color']) && !empty($options['label_color']) ? $options['label_color'] : '#333333';
+    
     $custom_css = "
+        /* Login form container background */
+        .fotoshare-password-form-container {
+            background-color: {$box_background_color};
+            color: {$text_color};
+        }
+        
+        /* Form title color */
+        .fotoshare-password-form-container h2 {
+            color: {$text_color};
+        }
+        
+        /* Label text color */
+        .fotoshare-form-field label {
+            color: {$label_color};
+        }
+        
+        /* Button colors */
         .fotoshare-form-submit input[type=\"submit\"] {
             background-color: {$button_color};
         }
