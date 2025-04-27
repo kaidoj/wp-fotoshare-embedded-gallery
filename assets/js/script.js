@@ -13,8 +13,13 @@
         $('.fotoshare-password-form').on('submit', function() {
             var $submitButton = $(this).find('input[type="submit"]');
             var originalText = $submitButton.val();
+            var loadingSvg = '<svg class="fotoshare-loading-spinner" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><style>.spinner{transform-origin:center;animation:spin .75s infinite linear}@keyframes spin{100%{transform:rotate(360deg)}}</style><circle class="spinner" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="30 65"/></svg>';
             
-            $submitButton.val('Kontrollin...').addClass('loading').prop('disabled', true);
+            // Hide text and append SVG loader
+            $submitButton.data('original-text', originalText)
+                         .prop('disabled', true)
+                         .addClass('loading')
+                         .html(loadingSvg);
             
             // Return true to allow the form to submit normally
             return true;

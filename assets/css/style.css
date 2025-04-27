@@ -82,6 +82,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     width: 100%;
+    min-height: 54px; /* Ensure consistent height when displaying spinner */
 }
 
 .fotoshare-form-submit input[type="submit"]:hover {
@@ -93,6 +94,24 @@
 .fotoshare-form-submit input[type="submit"]:active {
     background-color: #2a70c2;
     transform: translateY(0);
+}
+
+/* Loading spinner styles */
+.fotoshare-loading-spinner {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.fotoshare-form-submit input[type="submit"].loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.fotoshare-form-submit input[type="submit"].loading .spinner {
+    stroke: white;
 }
 
 /* Error Message */
