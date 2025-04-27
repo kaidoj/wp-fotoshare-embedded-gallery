@@ -66,6 +66,8 @@ function fotoshare_gallery_register_post_type() {
         'menu_position'      => null,
         'menu_icon'          => 'dashicons-format-gallery',
         'supports'           => array('title', 'editor'),
+        // Add this to exclude from Yoast SEO
+        'wpseo_sitemap_exclude' => true,
     );
 
     register_post_type('fotoshare_gallery', $args);
@@ -614,3 +616,33 @@ function fotoshare_gallery_deactivate() {
     flush_rewrite_rules();
 }
 register_deactivation_hook(__FILE__, 'fotoshare_gallery_deactivate');
+
+/**
+ * Exclude Fotoshare Gallery post type from Yoast SEO
+ */
+
+// Exclude fotoshare_gallery post type from Yoast SEO sitemaps
+function fotoshare_gallery_exclude_from_yoast_sitemap($excluded_posts_types) {
+    $excluded_posts_types[] = 'fotoshare_gallery';
+    return $excluded_posts_types;
+}
+add_filter('wpseo_sitemap_exclude_post_type', 'fotoshare_gallery_exclude_from_yoast_sitemap');
+
+// Remove fotoshare_gallery from Yoast SEO metabox
+function fotoshare_gallery_remove_from_yoast_metabox($post_types) {
+    if (isset($post_types['fotoshare_gallery'])) {
+        unset($post_types['fotoshare_gallery']);
+    }
+    return $post_types;
+}
+add_filter('wpseo_accessible_post_types', 'fotoshare_gallery_remove_from_yoast_metabox');
+
+// Remove fotoshare_gallery from Yoast SEO columns
+function fotoshare_gallery_remove_from_yoast_columns($post_types) {
+    if (isset($post_types['fotoshare_gallery'])) {
+        unset($post_types['fotoshare_gallery']);
+    }
+    return $post_types;
+}
+add_filter('wpseo_seo_score_post_types', 'fotoshare_gallery_remove_from_yoast_columns');
+add_filter('wpseo_readability_score_post_types', 'fotoshare_gallery_remove_from_yoast_columns');
